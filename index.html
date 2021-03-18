@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> DOM </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="reset.css">
+    </head>
+
+    <body>
+        <div id="container" class="containerEl">
+            <h1 id="div-h1"> Document Object Model </h1>
+
+            <button type="button" onclick="Myfunc()"> Set font size  </button>
+        </div>
+
+        
+
+
+
+    <script>
+        var changeH1 = document.getElementById("div-h1");
+        changeH1.innerHTML = "DOM";
+    </script>
+
+    <script>
+        document.getElementById("div-h1").style.fontSize = "20px";
+    </script>
+
+
+    <script>
+        function Myfunc() {
+            document.getElementById("div-h1").style.fontSize = "100px";
+        }
+    </script>
+
+
+    <script>
+        var divEl =  document.createElement('div');
+        var divText = document.createTextNode('div text');
+
+        divEl.appendChild(divText);
+
+        document.getElementById("container").appendChild(divEl);
+
+    </script>
+
+    </body>
+</html>

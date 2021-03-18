@@ -1,0 +1,20 @@
+body {
+    background-color: orange;
+}
+
+div h1 {
+    font-size: 40px;
+    
+}
+
+button {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.containerEl {
+    max-width: 200px;
+    width: 100%;
+    
+    margin: 300px auto;
+}
