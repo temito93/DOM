@@ -41,7 +41,7 @@
 
             //assign class name to div
             divEl.className = "dynamic-div";
-            divEl.id = "dynamic-div-id";
+            
             //assign dynamiclly created div to existing div with id(li-id)
             document.getElementById('li-id').appendChild(divEl);
             //----------------------------------------------------------------
@@ -85,20 +85,20 @@
             buttonEl.type = "button";
             buttonEl.textContent = "DELETE";
             buttonEl.className = "dynamic-button"
-            buttonEl.id = "dynamic-id"
-
+            
+            buttonEl.onclick = ("click", deleteDiv)
             for (var a=0; a < dynamicLi.length; a++) {
                 dynamicLi[a].appendChild(buttonEl);
             }
 
 
-            var calcOne = document.getElementById("dynamic-div-id");
-            var dynamicButton = document.getElementById("dynamic-id");
-            dynamicButton.addEventListener("click", deleteDiv);
+            
+            
+            
             
             function deleteDiv() {
-                   calcOne.remove();
-                    
+                   
+                    divEl.remove();
                 
             }
         }
