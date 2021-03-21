@@ -2,13 +2,12 @@ body {
     background-color: orange;
 }
 
-div h1 {
-    font-size: 40px;
-    
+input {
+    margin-top: 20px;
 }
 
 button {
-    width: 100px;
+    cursor: pointer;
     margin-top: 20px;
 }
 

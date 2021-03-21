@@ -9,41 +9,118 @@
 
     <body>
         <div id="container" class="containerEl">
-            <h1 id="div-h1"> Document Object Model </h1>
+            <form  class="div-form">
+                <div id="li-id" class="div-input">
+                    <label for="text"> Enter Text </label>
+                    <input type="text" id="text" name="text" >
+                </div>
 
-            <button type="button" onclick="Myfunc()"> Set font size  </button>
+                <div  class="div-send">
+                    <button type="submit" name="button" id="btext" > Add Text</button>
+                </div>
+            </form>
+
         </div>
+
+        
+
+    <script>
+        'use strick'
+
+        //add elements
+        document.getElementById("btext").addEventListener("click", myFunc);
+        
+        function myFunc(addText) {
+            //prevents page for refresh
+            addText.preventDefault()
+            
+
+            // DIV PARAMETERS
+            //Add new div in li-id
+            var divEl = document.createElement('div');
+
+            //assign class name to div
+            divEl.className = "dynamic-div";
+            divEl.id = "dynamic-div-id";
+            //assign dynamiclly created div to existing div with id(li-id)
+            document.getElementById('li-id').appendChild(divEl);
+            //----------------------------------------------------------------
+
+            //LIST PARAMETERS
+            //create input listen variable
+            var inputListen = document.getElementById("text").value;
+
+            //create li tag
+            var liEl = document.createElement('li');
+
+            liEl.className = "dynamic-li"
+
+            //create text in li which listens to input
+            var liText = document.createTextNode(inputListen);
+
+            //assign inputed text to li
+            liEl.appendChild(liText);
+
+
+            
+            //---------------------------------------------------------------------
+
+
+            //INSERTING LIST TAGS IN NEW DIV TAG
+            //variable for dynamic div
+            var calc = document.getElementsByClassName("dynamic-div");
+
+            //loop for div which inserts user input as list on every dynamiclly created div
+            for (var i=0; i< calc.length; i++) {
+                calc[i].appendChild(liEl);
+            }
+            //----------------------------------------------------------------------
+
+
+
+            // BUTTON PARAMETERS
+            var dynamicLi = document.getElementsByClassName("dynamic-li");
+
+            var buttonEl = document.createElement('button');
+            buttonEl.type = "button";
+            buttonEl.textContent = "DELETE";
+            buttonEl.className = "dynamic-button"
+            buttonEl.id = "dynamic-id"
+
+            for (var a=0; a < dynamicLi.length; a++) {
+                dynamicLi[a].appendChild(buttonEl);
+            }
+
+
+            var calcOne = document.getElementById("dynamic-div-id");
+            var dynamicButton = document.getElementById("dynamic-id");
+            dynamicButton.addEventListener("click", deleteDiv);
+            
+            function deleteDiv() {
+                   calcOne.remove();
+                    
+                
+            }
+        }
+
+         //--------------------------------------------------------------------
 
         
 
 
 
-    <script>
-        var changeH1 = document.getElementById("div-h1");
-        changeH1.innerHTML = "DOM";
-    </script>
+        //-----------------------------------------------------------------------
 
-    <script>
-        document.getElementById("div-h1").style.fontSize = "20px";
-    </script>
+        //clear input field after submit
+        document.getElementById("btext").addEventListener("click", clearFunc);
 
-
-    <script>
-        function Myfunc() {
-            document.getElementById("div-h1").style.fontSize = "100px";
+        function clearFunc() {
+            document.getElementById("text").value = '';
         }
+        
     </script>
 
-
-    <script>
-        var divEl =  document.createElement('div');
-        var divText = document.createTextNode('div text');
-
-        divEl.appendChild(divText);
-
-        document.getElementById("container").appendChild(divEl);
-
-    </script>
+    
 
     </body>
 </html>
