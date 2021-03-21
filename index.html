@@ -12,7 +12,7 @@
             <form  class="div-form">
                 <div id="li-id" class="div-input">
                     <label for="text"> Enter Text </label>
-                    <input type="text" id="text" name="text" >
+                    <input type="text" id="text" name="text" required>
                 </div>
 
                 <div  class="div-send">
@@ -57,9 +57,25 @@
 
             //create text in li which listens to input
             var liText = document.createTextNode(inputListen);
+            
+            
+            //Validation for input field
+            if (inputListen == null || inputListen == "") {
+                alert("Please enter text");
+                return false;
+            } else {
+                liEl.appendChild(liText);
+            }
+           
+                  
+             
+            
 
-            //assign inputed text to li
-            liEl.appendChild(liText);
+
+            
+            
+
+            
 
 
             
@@ -84,9 +100,8 @@
             var buttonEl = document.createElement('button');
             buttonEl.type = "button";
             buttonEl.textContent = "DELETE";
-            buttonEl.className = "dynamic-button"
-            
-            buttonEl.onclick = ("click", deleteDiv)
+            buttonEl.className = "dynamic-button" 
+            buttonEl.onclick = deleteDiv;
             for (var a=0; a < dynamicLi.length; a++) {
                 dynamicLi[a].appendChild(buttonEl);
             }
@@ -101,6 +116,8 @@
                     divEl.remove();
                 
             }
+
+            
         }
 
          //--------------------------------------------------------------------
