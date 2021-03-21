@@ -11,12 +11,12 @@
         <div id="container" class="containerEl">
             <form  class="div-form">
                 <div id="li-id" class="div-input">
-                    <label for="text"> Enter Text </label>
-                    <input type="text" id="text" name="text" required>
+                    <label for="text" id="label-text"> Enter Text: </label>
+                    <input type="text" id="text" name="text" placeholder="enter text here...">
                 </div>
 
                 <div  class="div-send">
-                    <button type="submit" name="button" id="btext" > Add Text</button>
+                    <button class="div-submit" type="submit" name="button" id="btext" > Add Text</button>
                 </div>
             </form>
 
@@ -52,6 +52,7 @@
 
             //create li tag
             var liEl = document.createElement('li');
+            liEl.style.listStyleType = "none";
 
             liEl.className = "dynamic-li"
 
@@ -68,7 +69,7 @@
             }
            
                   
-             
+            
             
 
 
@@ -95,11 +96,11 @@
 
 
             // BUTTON PARAMETERS
-            var dynamicLi = document.getElementsByClassName("dynamic-li");
+            var dynamicLi = document.getElementsByClassName("dynamic-div");
 
             var buttonEl = document.createElement('button');
             buttonEl.type = "button";
-            buttonEl.textContent = "DELETE";
+            buttonEl.textContent = "X";
             buttonEl.className = "dynamic-button" 
             buttonEl.onclick = deleteDiv;
             for (var a=0; a < dynamicLi.length; a++) {
